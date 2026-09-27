@@ -1,0 +1,540 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= AUTH ================= */
+
+.screen {
+    min-height: 100vh;
+}
+
+#authScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #222,
+            #080808 60%
+        );
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.6);
+}
+
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto;
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ff1a1a;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 0 30px rgba(255,0,0,.4);
+}
+
+.logo h1 {
+    font-size: 30px;
+}
+
+.logo p {
+    color: #aaa;
+    margin-top: 5px;
+}
+
+
+input {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 14px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 12px;
+
+    background: #151515;
+
+    color: white;
+
+    border: 1px solid #292929;
+}
+
+input:focus {
+    border-color: #ff1a1a;
+}
+
+
+button {
+    border: none;
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.auth-card button {
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #ff1a1a;
+
+    color: white;
+
+    font-weight: bold;
+}
+
+.auth-card button:hover {
+    transform: translateY(-2px);
+    background: #ff3333;
+}
+
+
+.switch {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+}
+
+.switch span {
+    color: #ff3333;
+    cursor: pointer;
+}
+
+#authMessage {
+    text-align: center;
+    margin-top: 15px;
+    color: #ff7777;
+}
+
+
+/* ================= APP ================= */
+
+#appScreen {
+    background: #090909;
+}
+
+.topbar {
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid #222;
+
+    background: #101010;
+}
+
+.topbar h2 {
+    font-size: 21px;
+}
+
+.topbar small {
+    color: #777;
+}
+
+.logout {
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    background: #222;
+
+    color: white;
+}
+
+.logout:hover {
+    background: #333;
+}
+
+
+main {
+    width: 100%;
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 25px;
+}
+
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: #151515;
+
+    margin-bottom: 30px;
+}
+
+
+.avatar,
+.big-avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #ff1a1a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    font-size: 20px;
+}
+
+
+.online {
+    color: #22d65c;
+    font-size: 13px;
+}
+
+
+.section-title {
+    margin-bottom: 15px;
+}
+
+
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    background: #151515;
+
+    border-radius: 15px;
+}
+
+
+.user-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.call-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.call-buttons button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    color: white;
+}
+
+.voice {
+    background: #16833a;
+}
+
+.video {
+    background: #1764b3;
+}
+
+
+/* ================= CALL ================= */
+
+.call-screen {
+    position: fixed;
+
+    inset: 0;
+
+    background: #050505;
+
+    z-index: 1000;
+}
+
+
+#remoteVideo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background: #111;
+}
+
+
+#localVideo {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 150px;
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 2px solid white;
+
+    background: #222;
+}
+
+
+.call-info {
+    position: absolute;
+
+    top: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+}
+
+
+.call-info h2 {
+    margin-top: 10px;
+}
+
+
+.call-info p {
+    color: #bbb;
+    margin-top: 5px;
+}
+
+
+.call-controls {
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 20px;
+}
+
+
+.call-controls button {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+
+.call-controls .end-call {
+    background: #ff1a1a;
+
+    transform: rotate(135deg);
+}
+
+
+/* ================= INCOMING ================= */
+
+.incoming {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    background: rgba(0,0,0,.8);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.incoming-card {
+    width: 90%;
+    max-width: 350px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background: #161616;
+
+    border: 1px solid #333;
+}
+
+
+.incoming-card .big-avatar {
+    margin: auto;
+    width: 80px;
+    height: 80px;
+
+    font-size: 30px;
+}
+
+
+.incoming-card h2 {
+    margin-top: 20px;
+}
+
+
+.incoming-card p {
+    color: #888;
+    margin-top: 7px;
+}
+
+
+.incoming-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-top: 30px;
+}
+
+
+.incoming-buttons button {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 25px;
+}
+
+
+.accept {
+    background: #1db954;
+}
+
+.decline {
+    background: #ff1a1a;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px) {
+
+    .auth-card {
+        padding: 25px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    #localVideo {
+        width: 110px;
+        height: 155px;
+    }
+
+    .call-controls {
+        bottom: 25px;
+    }
+
+}
