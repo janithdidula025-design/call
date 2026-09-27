@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#111111">
+
+    <title>Online Call</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<section id="authScreen" class="screen">
+
+    <div class="auth-card">
+
+        <div class="logo">
+            <div class="logo-icon">☎</div>
+            <h1>Online Call</h1>
+            <p>Connect instantly</p>
+        </div>
+
+        <div id="loginBox">
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button onclick="login()">
+                Login
+            </button>
+
+            <p class="switch">
+                Don't have an account?
+                <span onclick="showRegister()">Register</span>
+            </p>
+
+        </div>
+
+
+        <div id="registerBox" class="hidden">
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Your name"
+            >
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password"
+            >
+
+            <button onclick="register()">
+                Create Account
+            </button>
+
+            <p class="switch">
+                Already have an account?
+                <span onclick="showLogin()">Login</span>
+            </p>
+
+        </div>
+
+        <p id="authMessage"></p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= APP ================= -->
+
+<section id="appScreen" class="screen hidden">
+
+    <header class="topbar">
+
+        <div>
+            <h2>Online Call</h2>
+            <small id="myEmail"></small>
+        </div>
+
+        <button class="logout" onclick="logout()">
+            Logout
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <div class="profile-card">
+
+            <div class="avatar" id="myAvatar">
+                U
+            </div>
+
+            <div>
+                <h3 id="myName">
+                    User
+                </h3>
+
+                <span class="online">
+                    ● Online
+                </span>
+            </div>
+
+        </div>
+
+
+        <h3 class="section-title">
+            People
+        </h3>
+
+        <div id="usersList">
+            Loading users...
+        </div>
+
+    </main>
+
+</section>
+
+
+<!-- ================= CALL SCREEN ================= -->
+
+<div id="callScreen" class="call-screen hidden">
+
+    <video
+        id="remoteVideo"
+        autoplay
+        playsinline>
+    </video>
+
+    <video
+        id="localVideo"
+        autoplay
+        muted
+        playsinline>
+    </video>
+
+
+    <div class="call-info">
+
+        <div id="callAvatar" class="big-avatar">
+            U
+        </div>
+
+        <h2 id="callUser">
+            Calling...
+        </h2>
+
+        <p id="callStatus">
+            Connecting...
+        </p>
+
+    </div>
+
+
+    <div class="call-controls">
+
+        <button
+            id="muteBtn"
+            onclick="toggleMute()">
+            🎤
+        </button>
+
+        <button
+            id="cameraBtn"
+            onclick="toggleCamera()">
+            📷
+        </button>
+
+        <button
+            class="end-call"
+            onclick="endCall()">
+            ☎
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= INCOMING CALL ================= -->
+
+<div id="incomingCall" class="incoming hidden">
+
+    <div class="incoming-card">
+
+        <div class="big-avatar">
+            📞
+        </div>
+
+        <h2 id="incomingName">
+            Incoming Call
+        </h2>
+
+        <p>
+            Someone is calling you
+        </p>
+
+        <div class="incoming-buttons">
+
+            <button
+                class="decline"
+                onclick="declineCall()">
+                ✕
+            </button>
+
+            <button
+                class="accept"
+                onclick="acceptCall()">
+                ✓
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
